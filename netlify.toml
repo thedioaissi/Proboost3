@@ -1,0 +1,23 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build.environment]
+  NEXT_USE_NETLIFY_EDGE = "true"
+
+# Configuration pour le traitement des fichiers statiques
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Désactive la gestion des formulaires HTML par défaut
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+  conditions = {Language = ["fr"], Country = []}
